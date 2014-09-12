@@ -1,0 +1,1 @@
+KISSY.config("modules",{"kg/wf/2.0.0/index":{requires:["./lib/base","./lib/loader"]}});

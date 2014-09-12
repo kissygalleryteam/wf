@@ -1,0 +1,68 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>waterfall demo</title>
+    <script src="http://g.tbcdn.cn/kissy/k/1.4.7/seed-min.js"></script>
+    <style>
+        .ks-waterfall {
+            position: absolute;
+            width: 275px;
+            overflow: hidden;
+            padding: 0;
+            border: 2px solid #ddd;
+            margin-bottom: 20px;
+            text-align: center;
+            left:-9999px;
+            top:-9999px;
+        }
+    </style>
+</head>
+<body>
+<button id="J_Stop">停止加载</button>
+<div id='J_Wf' style="position: relative;">
+
+</div>
+<script>
+    if (KISSY.Config.debug) {
+        var debugPath = "../build";
+        KISSY.config({
+            packages:[
+                {
+                    name:"kg/wf/2.0.0",
+                    path:debugPath,
+                    charset:"utf-8",
+                    ignorePackageNameInUri:true
+                }
+            ]
+        });
+    }
+
+    KISSY.use("kg/wf/2.0.0/,io,node,button", function(S, Wf, io,  Node) {
+        var $ = Node.all;
+
+        var wf = new Wf.Loader({
+                    container:"#J_Wf",
+                    load:function(success, end) {
+                        io.get('./data.html').then(function(res){
+                            var html = res[0];
+                            //没有内容不再加载
+                            if(!html){
+                                end();
+                            }
+                            var $html = $(html);
+                            success($html);
+
+                        })
+                    },
+                    minColCount:2,
+                    colWidth:290
+                });
+          $('#J_Stop').on('click',function(){
+              wf.destroy();
+          });
+    });
+</script>
+</body>
+</html>

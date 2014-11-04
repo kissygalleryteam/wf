@@ -1,3 +1,4 @@
+define('kg/wf/5.0.0/lib/loader',["node","./base","util"],function(require, exports, module) {
 var Node = require('node');
 var Waterfall = require('./base');
 var util = require('util');
@@ -142,3 +143,4 @@ util.extend(Loader, Waterfall, {
 });
 
 module.exports = Loader;
+});

@@ -1,3 +1,4 @@
+define('kg/wf/5.0.0/lib/base',["node","base","util"],function(require, exports, module) {
 var Node = require('node');
 var Base = require('base');
 var $ = Node.all,
@@ -592,3 +593,4 @@ module.exports = Waterfall;
  *  - 增加动画特效
  *  - 增加删除/调整接口
  **/
+});

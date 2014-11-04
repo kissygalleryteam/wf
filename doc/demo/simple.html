@@ -3,7 +3,8 @@
 <html>
 <head>
     <meta charset="utf-8"/>
-    <title>waterfall demo</title><script src="http://g.tbcdn.cn/kissy/k/1.4.7/seed-min.js"></script>
+    <title>waterfall demo</title>
+    <script src="http://g.alicdn.com/kissy/k/5.0.1/??seed.js,import-style.js" charset="utf-8"></script>
     <style>
         .ks-waterfall {
             position: absolute;
@@ -138,21 +139,18 @@
     </div>
 </div>
 <script>
-    if (KISSY.Config.debug) {
-        var debugPath = "../build";
-        KISSY.config({
-            packages:[
-                {
-                    name:"kg/wf/2.0.0",
-                    path:debugPath,
-                    charset:"utf-8",
-                    ignorePackageNameInUri:true
-                }
-            ]
-        });
-    }
+    var debugPath = "../build";
+    require.config({
+        debug: true,
+        packages:[
+            {
+                name:"kg/wf/5.0.0",
+                path:debugPath
+            }
+        ]
+    });
 
-    KISSY.use("kg/wf/2.0.0/", function (S, Wf) {
+    require('kg/wf/5.0.0/index', function (Wf) {
         new Wf({
             container: "#J_Wf",    //节点容器
             minColCount: 2,             //最小列数

@@ -1,0 +1,1 @@
+define("kg/wf/5.0.0/index",["./lib/base","./lib/loader"],function(e,i,a){var b=e("./lib/base"),l=e("./lib/loader");b.Loader=l,a.exports=b});

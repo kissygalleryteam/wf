@@ -1,0 +1,12 @@
+{
+    "name": "wf",
+    "version": "2.0.0",
+    "main": "index.js",
+    "ignore": [
+        "**/*",
+        "!index.js",
+        "!lib/**/*"
+    ],
+    "dependencies": {
+    }
+}
